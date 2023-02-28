@@ -5,19 +5,28 @@ const imgArray = [
     '04.webp',
     '05.webp'
 ];
-console.log(imgArray);
+// console.log(imgArray);
 
 const imgListDom = document.querySelector('img_list');
 
 let bigWrapperDom = "";
 
-for (let i = 0; i < imgArray; i++ ){
-    const newImgWrapper =   `<div class="image-wrapper">
-    <img class="image" src="${imgArray[i]}" />
+for (let i = 0; i < imgArray.length; i++ ){
+    const newImgWrapper =   `<div class="img-wrapper">
+    <img class="img_cover" src="${imgArray[i]}" />
     </div>`;
 
 
     bigWrapperDom += newImgWrapper;
 }
 
+console.log(bigWrapperDom);
+
 imgListDom.innerHTML = bigWrapperDom;
+
+const imgWrapperDOM = document.getElementsByClassName('img-wrapper');
+
+
+let activeImage = 0;
+
+imagesWrapperDom[activeImage].classList.add('show');
