@@ -14,7 +14,11 @@
     position: relative;  
 }
 
-.d_none{
+#next.hide {
+    display: none;
+}
+
+#prev.hide {
     display: none;
 }
 

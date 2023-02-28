@@ -43,6 +43,11 @@ nextDom.addEventListener('click',
             activeImage++;
             imgWrapperDOM[activeImage].classList.add('show');
 
+
+            prevDom.classList.remove('hide');
+        }
+        if (activeImage == imgWrapperDOM.length - 1) {
+            nextDom.classList.add('hide');
         }
     }
 );
@@ -56,7 +61,12 @@ prevDom.addEventListener('click',
             imgWrapperDOM[activeImage].classList.remove('show');
             activeImage--;
             imgWrapperDOM[activeImage].classList.add('show');
-     
+
+            nextDom.classList.remove('hide');
+            
+        }
+        if (activeImage == 0) {
+            prevDom.classList.add('hide');
         }
     }
 );
