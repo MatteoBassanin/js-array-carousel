@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 70%;
+    margin: auto;
+}
+
+.big_wrapper {
+    padding: 200px;
+    margin: 10vh;
+   
+}
+
+.d_none{
+    display: none;
+}
+
+
+/* .img_list{
+    height: 100%;
+} */
+
+.img_cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
