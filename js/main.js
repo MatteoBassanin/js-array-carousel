@@ -5,7 +5,7 @@ const imgArray = [
     '04.webp',
     '05.webp'
 ];
-// console.log(imgArray);
+
 
 const imgListDom = document.querySelector('.img_list');
 
