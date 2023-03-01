@@ -48,7 +48,7 @@ nextDom.addEventListener('click',
      
             
             imgWrapperDOM[activeImage].classList.remove('show');
-            
+            imgWrapperThumbDom[activeImage].classList.remove('selected');
             
             
             if (activeImage == imgWrapperDOM.length - 1){
@@ -59,7 +59,7 @@ nextDom.addEventListener('click',
             }
             
             imgWrapperDOM[activeImage].classList.add('show');
-       
+            imgWrapperThumbDom[activeImage].classList.add('selected');
         
     }
 );
@@ -68,7 +68,8 @@ nextDom.addEventListener('click',
 
 prevDom.addEventListener('click', 
     function() {
-        
+
+        imgWrapperThumbDom[activeImage].classList.remove('selected');
         imgWrapperDOM[activeImage].classList.remove('show');
         
         if (activeImage == 0){
@@ -78,8 +79,9 @@ prevDom.addEventListener('click',
         }
         
         imgWrapperDOM[activeImage].classList.add('show');
+        imgWrapperThumbDom[activeImage].classList.add('selected');
         
-        nextDom.classList.remove('hide');
+        // nextDom.classList.remove('hide');
        
      
     }
