@@ -8,28 +8,36 @@ const imgArray = [
 
 
 const imgListDom = document.querySelector('.img_list');
-
+const imgThumbDom = document.querySelector(`.container_thumbs`);
 let bigWrapperDom = "";
+let thumsWrapperDom = "";
 
 for (let i = 0; i < imgArray.length; i++ ){
     const newImgWrapper =   `<div class="img_wrapper">
     <img class="img_cover" src="img/${imgArray[i]}" />
     </div>`;
-
+    const newImgThumb = `<div class="thumbs_wrapper">
+    <img class="img_thumb" src="img/${imgArray[i]}" alt="" />
+    </div>`;
 
     bigWrapperDom += newImgWrapper;
+    thumsWrapperDom += newImgThumb ;
+
 }
 
 console.log(bigWrapperDom);
+console.log(thumsWrapperDom);
 
 imgListDom.innerHTML = bigWrapperDom;
+imgThumbDom.innerHTML = thumsWrapperDom;
 
 const imgWrapperDOM = document.getElementsByClassName('img_wrapper');
-
+const imgWrapperThumbDom = document.getElementsByClassName('img_thumb');
 
 let activeImage = 0;
 
 imgWrapperDOM[activeImage].classList.add('show');
+imgWrapperThumbDom[activeImage].classList.add('selected');
 
 const nextDom = document.querySelector('#next');
 const prevDom = document.querySelector('#prev');
@@ -37,18 +45,22 @@ const prevDom = document.querySelector('#prev');
 
 nextDom.addEventListener('click', 
     function() {
-        if (activeImage < imgWrapperDOM.length - 1) {
-
+     
+            
             imgWrapperDOM[activeImage].classList.remove('show');
-            activeImage++;
+            
+            
+            
+            if (activeImage == imgWrapperDOM.length - 1){
+                activeImage = 0;
+                
+            }else{
+                activeImage++;
+            }
+            
             imgWrapperDOM[activeImage].classList.add('show');
-
-
-            prevDom.classList.remove('hide');
-        }
-        if (activeImage == imgWrapperDOM.length - 1) {
-            nextDom.classList.add('hide');
-        }
+       
+        
     }
 );
 
@@ -56,17 +68,19 @@ nextDom.addEventListener('click',
 
 prevDom.addEventListener('click', 
     function() {
-        if (activeImage > 0) {
-
-            imgWrapperDOM[activeImage].classList.remove('show');
+        
+        imgWrapperDOM[activeImage].classList.remove('show');
+        
+        if (activeImage == 0){
+            activeImage = imgWrapperDOM.length - 1;
+        }else {
             activeImage--;
-            imgWrapperDOM[activeImage].classList.add('show');
-
-            nextDom.classList.remove('hide');
-            
         }
-        if (activeImage == 0) {
-            prevDom.classList.add('hide');
-        }
+        
+        imgWrapperDOM[activeImage].classList.add('show');
+        
+        nextDom.classList.remove('hide');
+       
+     
     }
 );
